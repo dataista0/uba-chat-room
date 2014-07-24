@@ -1035,11 +1035,14 @@ var ajaxChat = {
 	},
 
 	getUserNodeString: function(userID, userName, userRole) {
-		var encodedUserName, str;
+		var encodedUserName, str, userStr;
 		if(this.userNodeString && userID === this.userID) {
 			return this.userNodeString;
 		} else {
 			encodedUserName = this.scriptLinkEncode(userName);
+		
+			userStr = (userID == this.userID) ? '<span style="color:blue">'+userName +' (Usted) </span>': userName;
+			
 			str	= '<div id="'
 					+ this.getUserDocumentID(userID)
 					+ '"><a href="javascript:ajaxChat.toggleUserMenu(\''
@@ -1053,7 +1056,7 @@ var ajaxChat = {
 					+ '" title="'
 					+ this.lang['toggleUserMenu'].replace(/%s/, userName)
 					+ '">'
-					+ userName
+					+ userStr
 					+ '</a>'
 					+ '<ul class="userMenu" id="'
 					+ this.getUserMenuDocumentID(userID)
@@ -1067,6 +1070,8 @@ var ajaxChat = {
 				this.userNodeString = str;
 			}
 			return str;	
+
+			//return "changos";
 		}
 	},
 
