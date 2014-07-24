@@ -150,7 +150,7 @@ ajaxChat.customOnNewMessage = function(dateObject, userID, userName, userRole, m
 
 ajaxChat.getUserNodeStringItems =  function(encodedUserName, userID, isInline) {
 		var menu;
-		if(encodedUserName !== this.encodedUserName) {
+		if(encodedUserName !== this.encodedUserName) { // otro usuario
 			menu = '';
 			if(this.userRole === '2' || this.userRole === '3') { //admin y moderadores
 				menu	+= '<li><a href="javascript:ajaxChat.sendMessageWrapperIfConfirm(\'/kick '
@@ -185,6 +185,7 @@ ajaxChat.getUserNodeStringItems =  function(encodedUserName, userID, isInline) {
 				menu	+= '<li><a href="javascript:ajaxChat.sendMessageWrapper(\'/restart_clock\');">Reiniciar clock</a></li>';
 				menu	+= '<li><a href="javascript:ajaxChat.sendMessageWrapperIfConfirm(\'/close_experiment\', \'Este paso es irreversible. Está seguro que quiere redirigir a todos los usuarios a la pantalla de finalización?\');">Redirigir a pantalla de finalización</a></li>';
 				menu	+= '<li><a href="javascript:ajaxChat.sendMessageWrapperIfConfirm(\'/empty_messages\', \'Vaciará todos los datos generados. Está seguro que desea continuar?\');">Borrar todo</a></li>';
+				menu	+= '<li><a href="javascript:ajaxChat.kickAll();">Desloguear a todos</a></li>';
 
 				
 
@@ -199,5 +200,21 @@ ajaxChat.sendMessageWrapperIfConfirm = function(message, confirmation_message)
 	if(confirm(confirmation_message))
 	{
 		return this.sendMessageWrapper(message);
+	}
+}
+
+ajaxChat.kickAll = function()
+{
+	if(!confirm("Deslogueará a todos los usuarios. Está serguro que desea continuar?")) return false;
+	var id, userName;
+	for(var i = 0; i < this.usersList.length; i++)
+	{
+
+		if(this.usersList[i] != "1")
+		{
+			userName = this.getUserNameFromUserID(this.usersList[i]);
+			this.sendMessageWrapper("/kick "+userName);
+			//console.log("/kick "+userName);
+		}
 	}
 }
