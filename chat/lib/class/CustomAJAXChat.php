@@ -450,7 +450,8 @@ class CustomAJAXChat extends AJAXChat {
 			break;
 
 			case 'LOGOUT_BUTTON_TYPE':
-				if($this->getConfig('showLogoutButton')) return "button";
+
+				if($this->getConfig('showLogoutButton') || $this->isAdmin()) return "button";
 				else return "hidden";
 			break;
 
