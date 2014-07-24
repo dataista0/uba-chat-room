@@ -93,11 +93,15 @@ class CustomAJAXChat extends AJAXChat {
 
 				$onlineUsersData = $this->getOnlineUsersData();
 				
-				if($userName == "admin") return null;
-				$id = 1;
+				//if($userName == "admin") return null;
+				
+				$id = 2;
+				//echo "<pre>";
+				//print_r($onlineUsersData);
 				foreach($onlineUsersData as $onlineUser)
 				{
 					if($userName == $onlineUser["userName"]) return null;
+					
 					$id++;
 				}
 					
