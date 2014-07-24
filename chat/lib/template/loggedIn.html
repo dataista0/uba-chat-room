@@ -22,7 +22,7 @@
 	  //http://jqueryui.com/slider/
   $(function() {
     $( "#slider-vertical" ).slider({
-      orientation: "vertical",
+      //orientation: "horizontal",
       range: "min",
       step: 5,
       min: 0,
@@ -34,6 +34,10 @@
         $( "#amount" ).val( ui.value );
       }     
     });
+
+    $("#bbCodeContainer").slider();
+
+    
     $( "#amount" ).val( $( "#slider-vertical" ).slider( "value" ) );
   });
   </script>
@@ -201,22 +205,12 @@
 			<span id="messageLengthCounter">0/[MESSAGE_TEXT_MAX_LENGTH/]</span>
 			<input type="button" id="submitButton" value="[LANG]messageSubmit[/LANG]" onclick="ajaxChat.sendMessage();"/>
 		</div>
-				[OMIT]
-					<div id="emoticonsContainer" dir="ltr"></div>
+				
+					[OMIT]<div id="emoticonsContainer" dir="ltr"></div>[/OMIT]
 					<div id="bbCodeContainer">
-						
-							<input type="button" value="[LANG]bbCodeLabelBold[/LANG]" title="[LANG]bbCodeTitleBold[/LANG]" onclick="ajaxChat.insertBBCode('b');" style="font-weight:bold;"/>
-							<input type="button" value="[LANG]bbCodeLabelItalic[/LANG]" title="[LANG]bbCodeTitleItalic[/LANG]" onclick="ajaxChat.insertBBCode('i');" style="font-style:italic;"/>
-							<input type="button" value="[LANG]bbCodeLabelUnderline[/LANG]" title="[LANG]bbCodeTitleUnderline[/LANG]" onclick="ajaxChat.insertBBCode('u');" style="text-decoration:underline;"/>
-							<input type="button" value="[LANG]bbCodeLabelQuote[/LANG]" title="[LANG]bbCodeTitleQuote[/LANG]" onclick="ajaxChat.insertBBCode('quote');"/>
-							<input type="button" value="[LANG]bbCodeLabelCode[/LANG]" title="[LANG]bbCodeTitleCode[/LANG]" onclick="ajaxChat.insertBBCode('code');"/>
-							<input type="button" value="[LANG]bbCodeLabelURL[/LANG]" title="[LANG]bbCodeTitleURL[/LANG]" onclick="ajaxChat.insertBBCode('url');"/>
-							<input type="button" value="[LANG]bbCodeLabelImg[/LANG]" title="[LANG]bbCodeTitleImg[/LANG]" onclick="ajaxChat.insertBBCode('img');"/>
-							<input type="button" value="[LANG]bbCodeLabelColor[/LANG]" title="[LANG]bbCodeTitleColor[/LANG]" onclick="ajaxChat.showHide('colorCodesContainer', null);"/>
-						
 					</div>
 					<div id="colorCodesContainer" style="display:none;" dir="ltr"></div>
-				[/OMIT]
+				
 		<div id="optionsContainer">
 			[OMIT]
 			<input type="image" src="img/pixel.gif" class="button" id="helpButton" alt="[LANG]toggleHelp[/LANG]" title="[LANG]toggleHelp[/LANG]" onclick="toggleContainer('helpContainer', new Array('onlineListContainer','settingsContainer'));"/>

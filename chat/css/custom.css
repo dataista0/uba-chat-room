@@ -25,6 +25,7 @@
 /*class="ui-slider-handle ui-state-default ui-corner-all"*/
 /*, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default */
 
+/*
 .ui-widget-content {
 	border: 1px solid #aaaaaa;
 	background: url(../img/green-red.png) no-repeat;
@@ -33,11 +34,11 @@
 .ui-widget-header
 {
 	background: transparent;
-}
+}*/
 
-.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+/*.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
 		border: 1px solid gray;	
-}
+}*/
 
 
 
@@ -102,4 +103,10 @@
 
 #content #settingsContainer {
 	top:66px;
+}
+
+#content #bbCodeContainer
+{
+	width:80%;
+	height: 5px;
 }
