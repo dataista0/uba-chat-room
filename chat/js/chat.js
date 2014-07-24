@@ -769,7 +769,6 @@ var ajaxChat = {
 	makeRequest: function(url, method, data) {
 		var identifier;
 		this.setStatus('waiting');
-		console.log(data);
 		try {
 			if(data) {
 				// Create up to 50 HTTPRequest objects:
@@ -889,7 +888,6 @@ var ajaxChat = {
 	},
 	
 	handleInfoMessage: function(infoType, infoData) {
-		console.log(infoType);
 		switch(infoType) {
 			case 'channelSwitch':
 				this.clearChatList();
@@ -2868,7 +2866,6 @@ var ajaxChat = {
 	// Override to perform custom actions on new messages:
 	// Return true if message is to be added to the chatList, else false
 	customOnNewMessage: function(dateObject, userID, userName, userRole, messageID, messageText, channelID, ip) {
-		console.log(channelID+" "+messageText);
 		return true;
 	}
 

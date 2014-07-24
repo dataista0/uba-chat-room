@@ -123,7 +123,6 @@ ajaxChat.customInitialize = function() {
 
 ajaxChat.customOnNewMessage = function(dateObject, userID, userName, userRole, messageID, messageText, channelID, ip)
 {
-	console.log(channelID+" "+messageText);
 	
 	switch(messageText)
 	{
@@ -214,7 +213,6 @@ ajaxChat.kickAll = function()
 		{
 			userName = this.getUserNameFromUserID(this.usersList[i]);
 			this.sendMessageWrapper("/kick "+userName);
-			//console.log("/kick "+userName);
 		}
 	}
 }
