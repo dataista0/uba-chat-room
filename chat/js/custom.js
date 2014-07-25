@@ -96,12 +96,12 @@ ajaxChat.toggleChatbox = function (show)
 
 ajaxChat.startOpinion = function ()
 {
-	$("#opinionBarContainer").css("display", "block");
+	$("#bbCodeContainer").css("display", "block");
 }
 
 ajaxChat.endOpinion = function ()
 {
-	$("#opinionBarContainer").css("display", "none");	
+	$("#bbCodeContainer").css("display", "none");	
 }
 
 ajaxChat.checkTime = function (i)

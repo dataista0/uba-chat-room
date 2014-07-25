@@ -18,27 +18,20 @@
   <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/resources/demos/style.css" />
   <script>
 
-	
-	  //http://jqueryui.com/slider/
   $(function() {
-    $( "#slider-vertical" ).slider({
-      //orientation: "horizontal",
-      range: "min",
-      step: 5,
-      min: 0,
-      max: 100,
-      value: [OPINION_VALUE/],
-      slide: function( event, ui ) {
-
-        ajaxChat.sendMessage("/opinion_change "+ui.value+" "+ajaxChat.getDatetime());
-        $( "#amount" ).val( ui.value );
-      }     
+    $("#slider-horizontal").slider({
+    	range: "min",
+      	step: 5,
+      	min: 0,
+      	max: 100,
+      	value: [OPINION_VALUE/],
+      	slide: function( event, ui ) {
+        	ajaxChat.sendMessage("/opinion_change "+ui.value+" "+ajaxChat.getDatetime());
+        	$( "#amount" ).val( ui.value );
+      	}     
     });
 
-    $("#bbCodeContainer").slider();
-
-    
-    $( "#amount" ).val( $( "#slider-vertical" ).slider( "value" ) );
+    $( "#amount" ).val( $( "#slider-horizontal" ).slider( "value" ) );
   });
   </script>
 
@@ -174,30 +167,6 @@
 			<h1>Acá va la pregunta en mayúsculas</h1>
 		</div>
 		<div id="chatList"></div>
-		<div id="opinionBarContainer" style="display:none;">
-			<div class='' >
-				<p>
-				  <label for="amount">Opinion</label>
-				  <input type="text" id="amount" style="border:0; background-color:#F1F1F1; color:#f6931f; font-weight:bold;width:30px; display:none;" />
-				</p>
-			</div>
-			<div id='opinion_container' style="height:100%;"> 
-					<div style="width:10%;height:85%;bottom:2px; top: 5px; float:left; margin-left:12px;">
-						<div style="height:33%;border-bottom: 1px solid #0066B9;"></div>
-						<div style="height:34%;border-bottom: 1px solid #0066B9;"></div>
-						<div style="height:33%;"></div>
-					</div>
-					<div id="slider-vertical" style="height:85%;bottom:2px; top: 5px;   float:left;"></div>
-
-					<div style="width:10%;height:85%;bottom:2px; top: 5px;  float:left;">
-						<div style="height:33%;border-bottom: 1px solid #0066B9;"></div>
-						<div style="height:34%;border-bottom: 1px solid #0066B9;"></div>
-						<div style="height:33%;"></div>
-					</div>
-			
-             </div>
-
-		</div>
 		<div id="inputFieldContainer" style="display:none;">
 			<textarea id="inputField" rows="1" cols="50" title="[LANG]inputLineBreak[/LANG]" onkeypress="ajaxChat.handleInputFieldKeyPress(event);" onkeyup="ajaxChat.handleInputFieldKeyUp(event);"></textarea>
 		</div>
@@ -206,17 +175,34 @@
 			<input type="button" id="submitButton" value="[LANG]messageSubmit[/LANG]" onclick="ajaxChat.sendMessage();"/>
 		</div>
 				
-					[OMIT]<div id="emoticonsContainer" dir="ltr"></div>[/OMIT]
-					<div id="bbCodeContainer">
-					</div>
-					<div id="colorCodesContainer" style="display:none;" dir="ltr"></div>
+			[OMIT]<div id="emoticonsContainer" dir="ltr"></div>[/OMIT]
+
+			<div id="bbCodeContainer" style="display:none;">
+				Opinion
+				<div id='opinion_container' style="height:100%;"> 
+						<div style="width:85%;bottom:20px; height:10px; top: 5px; float:left; margin-left:50px;">
+							<div style="width:33%;border-right: 3px solid #0066B9;float:left;">&nbsp;</div>
+							<div style="width:34%;border-right: 3px solid #0066B9;float:left;">&nbsp;</div>
+							<div style="width:33%;float:left;"></div>
+						</div>
+						<div id="slider-horizontal" style="width:85%;top:-8px;float:left;left:50px;"></div>
+	             </div>
+	             <div class='' style="display:none;">
+					<p>
+					  <label for="amount">Opinion</label>
+					  <input type="text" id="amount" style="border:0; background-color:#F1F1F1; color:#f6931f; font-weight:bold;width:30px; display:block;" />
+					</p>
+				</div>
+
+			</div>
+			<div id="colorCodesContainer" style="display:none;" dir="ltr"></div>
 				
-		<div id="optionsContainer">
-			[OMIT]
-			<input type="image" src="img/pixel.gif" class="button" id="helpButton" alt="[LANG]toggleHelp[/LANG]" title="[LANG]toggleHelp[/LANG]" onclick="toggleContainer('helpContainer', new Array('onlineListContainer','settingsContainer'));"/>
-			<input type="image" src="img/pixel.gif" class="button" id="onlineListButton" alt="[LANG]toggleOnlineList[/LANG]" title="[LANG]toggleOnlineList[/LANG]" onclick="toggleContainer('onlineListContainer', new Array('settingsContainer','helpContainer'));"/>
-			[/OMIT]
-  		</div>			
+			<div id="optionsContainer">
+				[OMIT]
+				<input type="image" src="img/pixel.gif" class="button" id="helpButton" alt="[LANG]toggleHelp[/LANG]" title="[LANG]toggleHelp[/LANG]" onclick="toggleContainer('helpContainer', new Array('onlineListContainer','settingsContainer'));"/>
+				<input type="image" src="img/pixel.gif" class="button" id="onlineListButton" alt="[LANG]toggleOnlineList[/LANG]" title="[LANG]toggleOnlineList[/LANG]" onclick="toggleContainer('onlineListContainer', new Array('settingsContainer','helpContainer'));"/>
+				[/OMIT]
+	  		</div>			
 				[OMIT]
 					<input type="image" src="img/pixel.gif" class="button" id="settingsButton" alt="[LANG]toggleSettings[/LANG]" title="[LANG]toggleSettings[/LANG]" onclick="toggleContainer('settingsContainer', new Array('onlineListContainer','helpContainer'));"/>
 					<input type="image" src="img/pixel.gif" class="button" id="audioButton" alt="[LANG]toggleAudio[/LANG]" title="[LANG]toggleAudio[/LANG]" onclick="ajaxChat.toggleSetting('audio', 'audioButton');"/>

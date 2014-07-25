@@ -13,7 +13,7 @@
 #content #chatList {
 	top:185px;
 	/*width:70%;*/
-	right:290px;
+	/*right:290px;*/
 }
 
 #content #onlineListContainer {
@@ -25,16 +25,16 @@
 /*class="ui-slider-handle ui-state-default ui-corner-all"*/
 /*, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default */
 
-/*
+
 .ui-widget-content {
 	border: 1px solid #aaaaaa;
-	background: url(../img/green-red.png) no-repeat;
+	background: #0066B9;
 	background-size: cover;
 }
 .ui-widget-header
 {
 	background: transparent;
-}*/
+}
 
 /*.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
 		border: 1px solid gray;	
@@ -108,5 +108,10 @@
 #content #bbCodeContainer
 {
 	width:80%;
-	height: 5px;
+	border-color:#0066B9;
+	height: 35px;
+	bottom: 40px;
+	border-width: 1px;
+	border-style: solid;
+
 }
